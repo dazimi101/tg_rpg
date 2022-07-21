@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Engine.ViewModels;
 
 namespace WPFUI
 {
@@ -20,9 +21,15 @@ namespace WPFUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private RpgSession _game;
         public MainWindow()
         {
+            // InitializeComponent is for the GUI window
             InitializeComponent();
+            _game = new RpgSession();
+
+            // Set context for binding in XAML file
+            DataContext = _game;
         }
     }
 }

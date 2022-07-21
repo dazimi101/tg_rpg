@@ -19,7 +19,34 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Menu" Background="Lavender"/>
-        <Label Grid.Row="1" Grid.Column="0" Content="Player Data" Background="DarkCyan"/>
+        <Grid Grid.Row="1" Grid.Column="0" Background="DarkCyan">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding UserPlayer.PlayerName}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="RC Type:"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding UserPlayer.RCType}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Ghoul Class:"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding UserPlayer.Class}"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="HP:"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding UserPlayer.HitPoints}"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="RC:"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding UserPlayer.RCPoints}"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Gems:"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding UserPlayer.Gems}"/>
+        </Grid>
         <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="Beige"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="DarkCyan"/>
         <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="BurlyWood"/>
