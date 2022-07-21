@@ -48,7 +48,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\RpgSession.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\Settings\alex-knight-5-GNa303REg-unsplash.jpg" />
+    <Resource Include="Images\Settings\alex_rainer-MWvtv8hlOz0-unsplash.jpg" />
+    <Resource Include="Images\Settings\alfons-morales-YLSwjSy7stw-unsplash.jpg" />
+    <Resource Include="Images\Settings\freddie-marriage-E9IB3-gp7OE-unsplash.jpg" />
+    <Resource Include="Images\Settings\good-eason-GieHT_jQuhk-unsplash.jpg" />
+    <Resource Include="Images\Settings\kanvz-pat-xx4vWG4mGL0-unsplash.jpg" />
+    <Resource Include="Images\Settings\note-thanun-k4EfTi2WXLc-unsplash.jpg" />
+    <Resource Include="Images\Settings\rezal-scharfe-wMAXEmlMZM0-unsplash.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Settings\joseph-albanese-xx0oSB1YxRE-unsplash.jpg" />
   </ItemGroup>
