@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
+        FontSize="18px"
         Title="Azimi's RPG" Height="1080" Width="1920">
     <Grid>
         <Grid.RowDefinitions>
@@ -49,7 +50,31 @@
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding UserPlayer.Gems}"/>
             <Button Grid.Row="6" Grid.Column="1" Content="Add XP" Click="ButtonBase_OnClick"></Button>
         </Grid>
-        <Label Grid.Row="1" Grid.Column="1" Content="Game Data" Background="Beige"/>
+        <Grid Grid.Row="1" Grid.Column="1" Background="Beige">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Margin ="10" Grid.Row="0" Grid.Column="1" BorderBrush="DarkCyan" BorderThickness="1">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding CurrentSetting.LocationName}"/>
+                    <Image Grid.Row="1" Height="300" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding CurrentSetting.LocationImage}"/>
+                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{Binding CurrentSetting.LocationDescription}"/>
+                </Grid>
+            </Border>
+        </Grid>
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="DarkCyan"/>
         <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="BurlyWood"/>
 

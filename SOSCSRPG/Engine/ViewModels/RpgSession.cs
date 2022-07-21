@@ -9,8 +9,11 @@ namespace Engine.ViewModels
 {
     public class RpgSession
     {
-        // Create UserPlayer Player property and initialize constant variable for Player fields
+        // Properties
         public Player UserPlayer { get; set; }
+        public Setting CurrentSetting { get; set; }
+
+        // Constants
         public const int InitialWealth = 100;
         public const int InitialRC = 1000;
         public const int InitialHealth = 0;
@@ -26,6 +29,13 @@ namespace Engine.ViewModels
             UserPlayer.RCPoints = InitialRC;
             UserPlayer.Gems = InitialWealth;
             UserPlayer.Class = InitialClass;
+
+            CurrentSetting = new Setting();
+            CurrentSetting.LocationName = "Apartment";
+            CurrentSetting.LocationDescription = "This is your (very) humble abode. Coffee is the only form of sustenance here that won't make you yack.";
+            CurrentSetting.LocationImage = "/Engine;component/Images/Settings/joseph-albanese-xx0oSB1YxRE-unsplash.jpg";
+            CurrentSetting.XPosition = 0;
+            CurrentSetting.YPosition = 0;
         }
 
     }
