@@ -31,5 +31,9 @@ namespace WPFUI
             // Set context for binding in XAML file
             DataContext = _game;
         }
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            _game.UserPlayer.RCPoints = _game.UserPlayer.RCPoints + 100;
+        }
     }
 }

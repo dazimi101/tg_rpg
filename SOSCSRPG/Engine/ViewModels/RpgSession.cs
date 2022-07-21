@@ -12,7 +12,7 @@ namespace Engine.ViewModels
         // Create UserPlayer Player property and initialize constant variable for Player fields
         public Player UserPlayer { get; set; }
         public const int InitialWealth = 100;
-        public const int InitialRC = 0;
+        public const int InitialRC = 1000;
         public const int InitialHealth = 0;
         public const int InitialClass = 1;
 
