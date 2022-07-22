@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factories\WorldEnvGenerator.cs" />
-    <Compile Include="Models\WorldEnv.cs" />
+    <Compile Include="Factories\MapGenerator.cs" />
+    <Compile Include="Models\Map.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

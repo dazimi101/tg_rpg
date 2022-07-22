@@ -7,7 +7,7 @@ using Engine.Models;
 
 namespace Engine.Models
 {
-    public class WorldEnv
+    public class Map
     {
         private List<Setting> _settings = new List<Setting>();
 

@@ -7,11 +7,11 @@ using Engine.Models;
 
 namespace Engine.Factories
 {
-    public class WorldEnvGenerator
+    public class MapGenerator
     {
-        public WorldEnv GenerateWorldEnvironment()
+        public Map GenerateWorldEnvironment()
         {
-            WorldEnv world = new WorldEnv();
+            Map world = new Map();
 
             world.AddLocationToWorld(0, 0, "Apartment", 
                 "This is your (very) humble abode. Here, Coffee is the only form of sustenance that won't make you yack.", 

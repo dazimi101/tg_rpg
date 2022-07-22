@@ -14,7 +14,7 @@ namespace Engine.ViewModels
         private Setting _currentSetting;
         // Properties
         public Player UserPlayer { get; set; }
-        public WorldEnv CurrentWorld { get; set; }
+        public Map CurrentWorld { get; set; }
         public Setting CurrentSetting
         {
             get
@@ -69,7 +69,7 @@ namespace Engine.ViewModels
         // Constants
         public const int InitialWealth = 100;
         public const int InitialRC = 1000;
-        public const int InitialHealth = 0;
+        public const int InitialHealth = 10;
         public const int InitialClass = 1;
 
         public RpgSession()
@@ -85,7 +85,7 @@ namespace Engine.ViewModels
                 Class = InitialClass
             };
 
-            WorldEnvGenerator generator = new WorldEnvGenerator();
+            MapGenerator generator = new MapGenerator();
 
             CurrentWorld = generator.GenerateWorldEnvironment();
 
@@ -94,20 +94,33 @@ namespace Engine.ViewModels
 
         public void MoveUp()
         {
-            CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition, CurrentSetting.YPosition+1);
+            if (HasUp) {
+                CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition, CurrentSetting.YPosition + 1);
+            }
         }
         public void MoveLeft()
         {
-            CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition-1, CurrentSetting.YPosition);
+            if (HasLeft)
+            {
+                CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition - 1, CurrentSetting.YPosition);
+
+            }
         }
 
         public void MoveDown()
         {
-            CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition, CurrentSetting.YPosition-1);
+            if (HasDown)
+            {
+                CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition, CurrentSetting.YPosition - 1);
+
+            }
         }
         public void MoveRight()
         {
+            if (HasRight)
+            {
             CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition+1, CurrentSetting.YPosition);
+            }
         }
     }
 }
