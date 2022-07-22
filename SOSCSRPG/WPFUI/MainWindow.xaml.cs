@@ -31,9 +31,21 @@ namespace WPFUI
             // Set context for binding in XAML file
             DataContext = _game;
         }
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void OnClick_MoveUp(object sender, RoutedEventArgs e)
         {
-            _game.UserPlayer.RCPoints = _game.UserPlayer.RCPoints + 100;
+            _game.MoveUp();
+        }
+        private void OnClick_MoveLeft(object sender, RoutedEventArgs e)
+        {
+            _game.MoveLeft();
+        }
+        private void OnClick_MoveDown(object sender, RoutedEventArgs e)
+        {
+            _game.MoveDown();
+        }
+        private void OnClick_MoveRight(object sender, RoutedEventArgs e)
+        {
+            _game.MoveRight();
         }
     }
 }

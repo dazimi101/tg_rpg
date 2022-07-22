@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         FontSize="18px"
         Title="TG RPG" Height="1080" Width="1920">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -48,7 +53,6 @@
             <Label Grid.Row="4" Grid.Column="1" Content="{Binding UserPlayer.RCPoints}"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Gems:"/>
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding UserPlayer.Gems}"/>
-            <Button Grid.Row="6" Grid.Column="1" Content="Add XP" Click="ButtonBase_OnClick"></Button>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="1" Background="Beige">
             <Grid.RowDefinitions>
@@ -70,13 +74,66 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Content="{Binding CurrentSetting.LocationName}"/>
-                    <Image Grid.Row="1" Height="300" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding CurrentSetting.LocationImage}"/>
+                    <Image Grid.Row="1" Stretch="Fill" Height="300" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding CurrentSetting.LocationImage}"/>
                     <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Text="{Binding CurrentSetting.LocationDescription}"/>
                 </Grid>
             </Border>
         </Grid>
         <Label Grid.Row="2" Grid.Column="0" Content="Inventory/Quests" Background="DarkCyan"/>
-        <Label Grid.Row="2" Grid.Column="1" Content="Combat/Movement Controls" Background="BurlyWood"/>
+        <Grid Grid.Row="2" Grid.Column="1" Background="BurlyWood">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Margin ="25" Grid.Row="0" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="1" Content="Up" Width="70" Height="70" Click="OnClick_MoveUp" 
+                        Visibility="{Binding HasUp, Converter={StaticResource BooleanToVisibility}}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="0" Content="Left" Width="70" Height="70" Click="OnClick_MoveLeft"
+                        Visibility="{Binding HasLeft, Converter={StaticResource BooleanToVisibility}}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="1" Content="Down" Width="70" Height="70" Click="OnClick_MoveDown"
+                        Visibility="{Binding HasDown, Converter={StaticResource BooleanToVisibility}}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Grid.Row="1" Grid.Column="2" Content="Right" Width="70" Height="70" Click="OnClick_MoveRight"
+                        Visibility="{Binding HasRight, Converter={StaticResource BooleanToVisibility}}">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

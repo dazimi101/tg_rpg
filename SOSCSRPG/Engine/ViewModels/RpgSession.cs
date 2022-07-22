@@ -5,15 +5,66 @@ using System.Text;
 using System.Threading.Tasks;
 using Engine.Models;
 using Engine.Factories;
+using System.ComponentModel;
 
 namespace Engine.ViewModels
 {
-    public class RpgSession
+    public class RpgSession : INotifyPropertyChanged
     {
+        private Setting _currentSetting;
         // Properties
         public Player UserPlayer { get; set; }
-        public Setting CurrentSetting { get; set; }
         public WorldEnv CurrentWorld { get; set; }
+        public Setting CurrentSetting
+        {
+            get
+            {
+                return _currentSetting;
+            }
+            set
+            {
+                _currentSetting = value;
+                onPropertyChanged("CurrentSetting");
+                onPropertyChanged("HasUp");
+                onPropertyChanged("HasLeft");
+                onPropertyChanged("HasDown");
+                onPropertyChanged("HasRight");
+            }
+        }
+
+        // Location boolean checkers (to hide XAML buttons)
+
+        public bool HasUp
+        {
+            get
+            {
+                return CurrentWorld.ReturnSetting(CurrentSetting.XPosition, CurrentSetting.YPosition + 1) != null;
+            }
+        }
+
+        public bool HasLeft
+        {
+            get
+            {
+                return CurrentWorld.ReturnSetting(CurrentSetting.XPosition - 1, CurrentSetting.YPosition) != null;
+            }
+        }
+
+        public bool HasDown
+        {
+            get
+            {
+                return CurrentWorld.ReturnSetting(CurrentSetting.XPosition, CurrentSetting.YPosition - 1) != null;
+            }
+        }
+
+        public bool HasRight
+        {
+            get
+            {
+                return CurrentWorld.ReturnSetting(CurrentSetting.XPosition + 1, CurrentSetting.YPosition) != null;
+            }
+        }
 
         // Constants
         public const int InitialWealth = 100;
@@ -40,5 +91,30 @@ namespace Engine.ViewModels
 
             CurrentSetting = CurrentWorld.ReturnSetting(0, 0);
         }
+
+        public void MoveUp()
+        {
+            CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition, CurrentSetting.YPosition+1);
+        }
+        public void MoveLeft()
+        {
+            CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition-1, CurrentSetting.YPosition);
+        }
+
+        public void MoveDown()
+        {
+            CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition, CurrentSetting.YPosition-1);
+        }
+        public void MoveRight()
+        {
+            CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition+1, CurrentSetting.YPosition);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void onPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
+    
