@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace Engine.ViewModels
 {
-    public class RpgSession : INotifyPropertyChanged
+    public class RpgSession : UpdateHandler
     {
         private Setting _currentSetting;
         // Properties
@@ -24,11 +24,11 @@ namespace Engine.ViewModels
             set
             {
                 _currentSetting = value;
-                onPropertyChanged("CurrentSetting");
-                onPropertyChanged("HasUp");
-                onPropertyChanged("HasLeft");
-                onPropertyChanged("HasDown");
-                onPropertyChanged("HasRight");
+                onPropertyChanged(nameof(CurrentSetting));
+                onPropertyChanged(nameof(HasUp));
+                onPropertyChanged(nameof(HasLeft));
+                onPropertyChanged(nameof(HasDown));
+                onPropertyChanged(nameof(HasRight));
             }
         }
 
@@ -108,12 +108,6 @@ namespace Engine.ViewModels
         public void MoveRight()
         {
             CurrentSetting = CurrentWorld.ReturnSetting(CurrentSetting.XPosition+1, CurrentSetting.YPosition);
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void onPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

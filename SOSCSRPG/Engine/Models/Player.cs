@@ -8,7 +8,7 @@ using System.ComponentModel;
 namespace Engine.Models
 {
     // Data binding does not know when the value of a property is changed, so raise a property changed event
-    public class Player : INotifyPropertyChanged
+    public class Player : UpdateHandler
     {
         private static string _playerName;
         private static string _rcType;
@@ -26,7 +26,7 @@ namespace Engine.Models
             set
             {
                 _playerName = value;
-                onPropertyChanged("PlayerName");
+                onPropertyChanged(nameof(PlayerName));
             } 
         }
         // The type of RC cells in a ghoul's body determines what type of kagune they have
@@ -39,7 +39,7 @@ namespace Engine.Models
             set
             {
                 _rcType = value;
-                onPropertyChanged("RCType");
+                onPropertyChanged(nameof(RCType));
             }
         }
         public int HitPoints
@@ -51,7 +51,7 @@ namespace Engine.Models
             set
             {
                 _hitPoints = value;
-                onPropertyChanged("HitPoints");
+                onPropertyChanged(nameof(HitPoints));
             }
         }
         // Amount of RC is equivalent to XP points
@@ -64,7 +64,7 @@ namespace Engine.Models
             set
             {
                 _rcPoints = value;
-                onPropertyChanged("RCPoints");
+                onPropertyChanged(nameof(RCPoints));
             }
         }
         // Ghoul class is equivalent to level
@@ -77,7 +77,7 @@ namespace Engine.Models
             set
             {
                 _class = value;
-                onPropertyChanged("Class");
+                onPropertyChanged(nameof(Class));
             }
         }
         public int Gems
@@ -89,14 +89,8 @@ namespace Engine.Models
             set
             {
                 _gems = value;
-                onPropertyChanged("Gems");
+                onPropertyChanged(nameof(Gems));
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void onPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
