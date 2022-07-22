@@ -11,7 +11,7 @@ namespace Engine.Models
     {
         private List<Setting> _settings = new List<Setting>();
 
-        internal void AddLocationToWorld (int x, int y, string name, string desc, string img)
+        internal void AddLocationToMap (int x, int y, string name, string desc, string img)
         {
             Setting setting = new Setting();
             setting.XPosition = x;

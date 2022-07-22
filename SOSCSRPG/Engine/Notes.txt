@@ -1,0 +1,24 @@
+﻿Item class
+	- Constructor takes three args:
+		- Item ID (to identify item in list)
+		- Item name
+		- Gem price
+
+Weapon class
+	- Inherits from item class
+	- Adds two new parameters to constructor
+		- MinDmg
+		- MaxDmg
+
+ItemGenerator class
+	- Generates and hold list of items
+	- Whenever methods from within are called, it creates another version of the item from list
+		- Clones it effectivewly
+
+Weapon IDs
+	- 10 - 19 (lowest tier)
+	- 20 - 39 (second lowest tier)
+	- 40 - 79 (mid tier, largest tier, most weapons)
+	- 80 - 94 (third highest tier)
+	- 95 - 99 (god tier)
+	- 100 (best weapon in game)
