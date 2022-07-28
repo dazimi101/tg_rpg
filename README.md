@@ -1,2 +1,2 @@
-# rp_game
-A simple rpg made to learn c#.
+# tg_rpg
+A text based rpg inspired by tokyo ghoul. 
